@@ -16,5 +16,7 @@ class InteractiveRecord
       columns << col["name"]
     end
     binding.pry
+
+    column_names.compact
   end
 end
