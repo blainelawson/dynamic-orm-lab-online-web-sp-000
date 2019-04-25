@@ -13,7 +13,7 @@ class InteractiveRecord
     sql = "PRAGMA table_info(#{self.table_name})"
 
     DB[:conn].execute(sql).each do |col|
-      columns << col[name]
+      columns << col["name"]
     end
     binding.pry
   end
