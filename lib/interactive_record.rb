@@ -7,10 +7,13 @@ class InteractiveRecord
   end
 
   def self.column_names
+    columns = []
+    
     DB[:conn].results_as_hash = true
     sql = "PRAGMA table_info(#{self.table_name})"
 
-    DB[:conn].execute(sql)
+    DB[:conn].execute(sql).each do |col|
+      col[name]
     binding.pry
   end
 end
